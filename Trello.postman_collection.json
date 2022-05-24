@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "1b76218f-0f84-4458-9b09-d169db9f5190",
+		"name": "Trello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20262043"
+	},
+	"item": [
+		{
+			"name": "GET BOARD",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/628bb3a892efe750e274af1d?key={{apikey}}&token={{apitoken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"628bb3a892efe750e274af1d"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{apitoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BOARDS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/members/me/boards?key={{apikey}}&token={{apitoken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"members",
+						"me",
+						"boards"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{apitoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE A BOARD",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/?name=KochamAPI&key={{apikey}}&token={{apitoken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "KochamAPI"
+						},
+						{
+							"key": "key",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{apitoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE LIST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/628bd69bad17c00aebd606bb/lists?name=kochamPostmana&key={{apikey}}&token={{apitoken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"628bd69bad17c00aebd606bb",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "kochamPostmana"
+						},
+						{
+							"key": "key",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{apitoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE NEW CARD",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/cards?idList=628cd86d2cba7822f4d4d7c1&key={{apikey}}&token={{apitoken}}&name=Pies burek",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"cards"
+					],
+					"query": [
+						{
+							"key": "idList",
+							"value": "628cd86d2cba7822f4d4d7c1"
+						},
+						{
+							"key": "key",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{apitoken}}"
+						},
+						{
+							"key": "name",
+							"value": "Pies burek"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE BOARD",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/628bb3a892efe750e274af1d?key={{apikey}}&token={{apitoken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"628bb3a892efe750e274af1d"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{apitoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apikey",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "apitoken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
